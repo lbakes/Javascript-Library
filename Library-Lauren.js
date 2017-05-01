@@ -1,29 +1,31 @@
 
-
 var library = function() {};
 
-var book1 = new newBook ("Catcher in the Rye","J.D Salinger", "214", "Little, Brown and Company");
-var book2 = new newBook ("East of Eden", "John Steinback", "500", "Little, Brown and Company");
-var book3 = new newBook ("To Kill a Mocking Bird", "Harper Lee", "281", "J. B. Lippencott & Co.");
-var book4 = new newBook ("1984", "George Orwell", "298", "Secker & Warburg");
-var book5 = new newBook ("The Outsiders", "S.E Hinton", "192", "Viking Press, Dell Publishing");
+var book1 = new newBook ("Catcher in the Rye","J.D Salinger", "214", new Date(1951, 07, 16));
+var book2 = new newBook ("East of Eden", "John Steinback", "500", new Date (1951, 07, 16));
+var book3 = new newBook ("To Kill a Mocking Bird", "Harper Lee", "281", new Date(1960, 07, 11));
+var book4 = new newBook ("1984", "George Orwell", "298", new Date (1949, 06, 08));
+var book5 = new newBook ("The Outsiders", "S.E Hinton", "192", new Date (1967, 04, 24));
+var book6 = new newBook ("Lord of the Flies", "William Golding", "182", new Date (1963))
 
-var book6 = new newBook ("Fahrenheit 451", "Ray Bradbury", "158", "Ballantine Books");
-var book7 = new newBook ("Atlas Shrugged", "Ayn Rand", "1088", "Penguin Publishing Group");
-var book8 = new newBook ("The Adventures of Huckleberry Finn", "Mark Twain", "465", "Public Domain");
+var book7 = new newBook ("Fahrenheit 451", "Ray Bradbury", "158", new Date (1951));
+var book8 = new newBook ("Atlas Shrugged", "Ayn Rand", "1088",new Date (1957));
+var book9 = new newBook ("Catch 22", "Joseph Heller", "453", new Date (1961, 11, 10));
 
 var aBooks = [
-  book6,
   book7,
-  book8
+  book8,
+  book9
 ]
 
-function newBook (title, author, numberOfPages, publisher){
+function newBook (title, author, numberOfPages, publishDate){
   this.title = title;
   this.author = author;
   this.numberOfPages = numberOfPages;
-  this.publisher = publisher;
+  this.publishDate = publishDate;
 };
+
+// (book1.publishDate.toLocaleDateString('en-US'));
 
 library.prototype.bookArray = [];
 
@@ -45,30 +47,32 @@ library.prototype.addBook = function(book){
 // Return: boolean true if the book(s) were removed, false if no books match
 
 library.prototype.removeBookByTitle = function (title){
+  var regEx = new RegExp(title, 'i');
   var bool = false;
     for(var i = 0; i < this.bookArray.length; i++){
-    if  (this.bookArray[i].title == title) {
+    if  (this.bookArray[i].title.match(regEx)) {
          this.bookArray.splice(i,1);
          bool = true;
 
     }
   }
-      return bool;
+        return bool;
 };
 
 // Purpose: Remove a specific book from your books array by the author name.
 // Return: boolean true if the book(s) were removed, false if no books match
 
 library.prototype.removeBookByAuthor = function (author){
-var bool = false;
-  for(var i = 0; i < this.bookArray.length; i++){
-  if  (this.bookArray[i].author == author) {
-       this.bookArray.splice(i,1);
-       bool = true;
+  var regEx = new RegExp(author, 'i');
+  var bool = false;
+    for(var i = 0; i < this.bookArray.length; i++){
+    if  (this.bookArray[i].author.match(regEx)) {
+         this.bookArray.splice(i,1);
+         bool = true;
 
+    }
   }
-}
-    return bool;
+      return bool;
 };
 
 
@@ -87,33 +91,32 @@ library.prototype.getRandomBook = function(){
 // Return: array of book objects if you find books with matching titles, empty array if no books are found
 
 library.prototype.getBookByTitle = function(title){
-  var regEx = new RegExp(title, 'gi');
+  var regEx = new RegExp(title, 'i');
   var matchArray = [];
   for(var i = 0; i < this.bookArray.length; i++){
     if(this.bookArray[i].title.match(regEx)){
         matchArray.push(this.bookArray[i]);
     }
-    return matchArray;
-}
+  }
+  return matchArray;
 };
 
 // Purpose: Finds all books where the author’s name partially or completely matches the authorName argument passed to the function.
 // Return: array of books if you find books with match authors, empty array if no books match
-//
 
-library.prototype.getBooksByAuthor = function(author){
-  var regEx = new RegExp(author, 'gi');
+library.prototype.getBookByAuthor = function(author){
+  var regEx = new RegExp(author, 'i');
   var matchArray = [];
   for(var i = 0; i < this.bookArray.length; i++){
     if(this.bookArray[i].author.match(regEx)){
         matchArray.push(this.bookArray[i]);
     }
-    return matchArray;
-}
+  }
+  return matchArray;
 };
 
 // Purpose: Takes multiple books, in the form of an array of book objects, and adds the objects to your books array.
-// Return: number number of books successfully added, 0 if no books were added
+// Return: number of books successfully added, 0 if no books were added
 
 library.prototype.addBooks = function(array1){
 var num = 0;
