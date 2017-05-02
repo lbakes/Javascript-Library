@@ -6,13 +6,14 @@ var book2 = new newBook ("East of Eden", "John Steinback", "500", new Date (1951
 var book3 = new newBook ("To Kill a Mocking Bird", "Harper Lee", "281", new Date(1960, 07, 11));
 var book4 = new newBook ("1984", "George Orwell", "298", new Date (1949, 06, 08));
 var book5 = new newBook ("The Outsiders", "S.E Hinton", "192", new Date (1967, 04, 24));
-var book6 = new newBook ("Lord of the Flies", "William Golding", "182", new Date (1963))
 
+var book6 = new newBook ("Lord of the Flies", "William Golding", "182", new Date (1963))
 var book7 = new newBook ("Fahrenheit 451", "Ray Bradbury", "158", new Date (1951));
 var book8 = new newBook ("Atlas Shrugged", "Ayn Rand", "1088",new Date (1957));
 var book9 = new newBook ("Catch 22", "Joseph Heller", "453", new Date (1961, 11, 10));
 
 var aBooks = [
+  book6,
   book7,
   book8,
   book9
@@ -80,7 +81,7 @@ library.prototype.removeBookByAuthor = function (author){
 // Return: book object if you find a book, null if there are no books
 
 library.prototype.getRandomBook = function(){
-  if  (this.bookArray.length > 0) {
+  if  (this.bookArray.length) {
   var randomNum = Math.floor(Math.random() * this.bookArray.length);
   return this.bookArray[randomNum];
   }
@@ -123,8 +124,8 @@ var num = 0;
 for(var i = 0; i < array1.length; i++){
   if (this.addBook(array1[i])){
     num++;
+    }
   }
-}
 return num;
 };
 // Purpose: Find the distinct authors’ names from all books in your library
@@ -147,8 +148,11 @@ library.prototype.getRandomAuthorName = function(){
   if  (this.bookArray.length > 0) {
   var randomNum = Math.floor(Math.random() * this.bookArray.length);
   return this.bookArray[randomNum].author;
-  }
+    }
     return null;
   };
 
   var gLibrary = new library();
+
+
+  // library.prototype.init(

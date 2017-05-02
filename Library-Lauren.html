@@ -2,15 +2,98 @@
 <html>
    <head>
        <title>Library</title>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+       <link rel="stylesheet" type="text/css" src="css/normalize.css">
+       <link rel="stylesheet" href="Library-Lauren.css">
    </head>
+
    <body>
-    <div class='row'>
-      <div class='col-md-6'>
-        <h3>My Library</h3>
-        <div id="books"></div>
+     <div class="container fluid">
+         <div class="row">
+           <div class="col-md-12">
+             <h1>Lauren's Library</h1>
+             <h2><em>Of Classic Books</em></h2>
+           </div>
+         </div>
+
+     <div class = "row">
+        <div class = "col-md-8">
+          <h4>Library</h4>
+        </div>
+        <div class = "col-md-4">
+          <h4>Get Books</h4>
+        </div>
+      </div>
+
+     <div class = "row">
+       <div class = "col-md-8">
+          <div class = "book-container">
+          </div>
+        </div>
+        <div class = "col-md-4">
+          <div class = "side-book-container">
+          </div>
+        </div>
+    </div>
+
+    <div class = "row">
+      <div class = "col-md-12">
+        <form class = "add-book">
+          <input type = "text" name = "title" placeholder = "Title">
+          <input type = "text" name = "author" placeholder = "Author">
+          <input type = "text" name = "number-of-pages" placeholder = "Pages">
+          <input type = "text" name = "publish-date" placeholder = "Publish Date">
+          <button type = "submit">Add Book</button>
+        </form>
+      </div>
+    </div>
+
+    <div class = "row">
+      <div class = "col-md-6">
+        <div class = "buttons-1">
+            <form>
+              <input type = "text" name = "remove-book-by-title" placeholder = "Remove Book By Title">
+              <button type = "submit" value = "Submit">Remove</button>
+            </form>
+            <form>
+              <input type = "text" name = "remove-book-by-author" placeholder = "Remove Book By Author">
+              <button type = "submit" value = "Submit">Remove</button>
+            </form>
+            <form>
+              <input type = "text" name = "get-random-book" placeholder = "Get Random Book">
+              <button type = "submit" value = "Submit">Get</button>
+            </form>
+            <form class ="buttons-1-last">
+              <input type = "text" name = "get-book-by-title" placeholder = "Get Book by Title">
+              <button type = "submit" value = "Submit">Get</button>
+            </form>
+        </div>
+      </div>
+
+      <div class = "col-md-6">
+        <div class = "buttons-2">
+          <form>
+            <input type = "text" name = "get-book-by-author" placeholder = "Get Book by Author">
+            <button type = "submit" value = "Submit">Get</button>
+          </form>
+          <form>
+            <input type = "text" name = "add-books" placeholder = "Add Books">
+            <button type = "submit" value = "Submit">Add</button>
+          </form>
+          <form>
+            <input type = "text" name = "get-authors" placeholder = "Get Authors">
+            <button type = "submit" value = "Submit">Get</button>
+          </form>
+          <form class = "buttons-2-last">
+            <input type = "text" name = "get-random-author" placeholder = "Get Random Author">
+            <button type = "submit" value = "Submit">Get</button>
+          </form>
+        </div>
       </div>
     </div>
 
        <script type="text/javascript" src="Library-Lauren.js"></script>
+
    </body>
+
 </html>
