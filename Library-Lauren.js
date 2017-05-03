@@ -1,4 +1,5 @@
 
+
 var library = function() {};
 
 var book1 = new newBook ("Catcher in the Rye","J.D Salinger", "214", new Date(1951, 07, 16));
@@ -152,7 +153,27 @@ library.prototype.getRandomAuthorName = function(){
     return null;
   };
 
-  var gLibrary = new library();
 
+  library.prototype.init = function(){
+    this.$addBookButton = $("button.add-bk");
+    this._bindEvents();
+  };
 
-  // library.prototype.init(
+  library.prototype._bindEvents = function(){
+    this.$addBookButton.on("click", $.proxy(this._handleEvent, this));
+  };
+
+  library.prototype._handleEvent = function(){
+    $.each($("form"), function(index, value){
+      var title = $(this).children(".title").val();
+      var author = $(this).children(".author").val();
+      var pages = $(this).children(".pages").val();
+      var date = $(this).children(".date").val();
+      if(title && author) {
+        $("div.book-container").append("<li>" + title + " " + author + " " + pages + " " + date + " " + "</li>");
+      }
+    });
+  };
+
+var gLibrary = new library();
+gLibrary.init();
