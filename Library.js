@@ -27,34 +27,35 @@ function newBook (title, author, numberOfPages, publishDate){
   this.publishDate = publishDate;
 };
 
-// (book1.publishDate.toLocaleDateString('en-US'));
 
 library.prototype.bookArray = [];
-
 
 // Purpose: Add a book object to your books array.
 // Return: boolean true if it is not already added, false if it is already added.
 
 library.prototype.addBook = function(book){
   for(var i = 0; i < this.bookArray.length; i++){
-  if  (this.bookArray[i].title == book.title) {
+  if  (this.bookArray[i].title == title) {
     return false;
   }
 }
     this.bookArray.push(book);
+    $("div.book-container").append("<li>" + book.title + " " + book.author + " " + book.numberOfPages + " " + book.publishDate + " " + "</li>");
     return true;
 };
 
 // Purpose: Remove book from from the books array by its title.
 // Return: boolean true if the book(s) were removed, false if no books match
 
-library.prototype.removeBookByTitle = function (title){
+library.prototype.removeBookByTitle = function (){
   var regEx = new RegExp(title, 'i');
   var bool = false;
     for(var i = 0; i < this.bookArray.length; i++){
     if  (this.bookArray[i].title.match(regEx)) {
          this.bookArray.splice(i,1);
+         $("div.book-container").remove("<li>" + book.title + " " + book.author + " " + book.numberOfPages + " " + book.publishDate + " " + "</li>")
          bool = true;
+
 
     }
   }
@@ -154,26 +155,33 @@ library.prototype.getRandomAuthorName = function(){
   };
 
 
-  library.prototype.init = function(){
-    this.$addBookButton = $("button.add-bk");
+  library.prototype.init=function(){
+    this.$addBookButton=$("button.add-bk");
+    this.$rmveBookByTleButton=$("button.rmve-bk-by-tle")
     this._bindEvents();
   };
 
   library.prototype._bindEvents = function(){
-    this.$addBookButton.on("click", $.proxy(this._handleEvent, this));
+    this.$addBookButton.on("click", $.proxy(this._getForms, this));
+    this.$rmveBookByTleButton.on("click", $.proxy(this._getForm1, this));
   };
 
-  library.prototype._handleEvent = function(){
+  library.prototype._getForms= function(){
+    var _self=this;
     $.each($("form"), function(index, value){
       var title = $(this).children(".title").val();
       var author = $(this).children(".author").val();
       var pages = $(this).children(".pages").val();
       var date = $(this).children(".date").val();
-      if(title && author) {
-        $("div.book-container").append("<li>" + title + " " + author + " " + pages + " " + date + " " + "</li>");
+      if(title && author && pages && date) {
+        var book = new newBook(title, author, pages, date)
+        _self.addBook(book);
       }
     });
   };
+
+
+
 
 var gLibrary = new library();
 gLibrary.init();
