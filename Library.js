@@ -26,6 +26,9 @@ this.$dropDown.append("<li class='listGroupItem'>" + "<input type='text' class='
 
 
 library.prototype.init=function(){
+  this.$bookContainer=$("#bookContainer ul");
+  this.$dropDown=$("#dropDown ul");
+
   this.$addBookButton=$("button.addBook");
   this.$removebyTitle=$("button.rmveBkByTle");
   this.$bookContainer=$("#bookContainer ul");
@@ -34,19 +37,20 @@ library.prototype.init=function(){
   this.$getAuthors=$("button.getAuths");
   this.$getBookByTitleBtn=$("button.getBookByTitleBtn");
   this.$getBookByAuthor=$("button.getBookByAuth");
-  this.$dropDown=$("#dropDown ul");
+
   this._bindEvents();
 };
 
 library.prototype._bindEvents = function(){
+  $('#dropDownBtn').on("click", $.proxy(this._addLi, this));
+
   this.$addBookButton.on("click", $.proxy(this._getAddBookInputs, this));
-  this.$removebyTitle.on("click", $.proxy(this._getRemoveTitleInputs, this));
+  this.$removebyTitle.on("click", $.proxy(this.removeBookByTitle, this));
   this.$ranBookBtn.on("click", $.proxy(this.getRandomBook, this));
   this.$ranAuthBtn.on("click", $.proxy(this.getRandomAuthorName, this));
   this.$getAuthors.on("click", $.proxy(this.getAuthors, this));
-  this.$getBookByTitleBtn.on("click", $.proxy(this.getBookByTitle, this));
+  this.$getBookByTitleBtn.on("click", $.proxy(this._getAddTitleInputs, this));
   this.$getBookByAuthor.on("click", $.proxy(this.getBookByAuthor, this));
-  $('#dropDownBtn').on("click", $.proxy(this._addLi, this));
 };
 
 library.prototype._getAddBookInputs = function(){
@@ -62,6 +66,17 @@ library.prototype._getAddBookInputs = function(){
     }
   });
 };
+
+library.prototype._getAddTitleInputs = function(){
+  var _self=this;
+  var title = document.getElementById("#getTitle").val();
+   if(title) {
+      // console.log('title');
+      var title=$(this).children(".getTitle").val();
+      _self.getBookByTitle(title);
+    }
+  };
+
 
 function newBook (title, author, numberOfPages, publishDate){
   this.title = title;
@@ -90,7 +105,6 @@ library.prototype.removeBookByTitle = function (title){
     for(var i = 0; i < this.bookArray.length; i++){
     if  (this.bookArray[i].title.match(regEx)) {
          this.bookArray.splice(i,1);
-         $("div.bookContainer").remove(book.title);
          bool = true;
 
 
@@ -122,6 +136,7 @@ library.prototype.getRandomBook = function(){
   };
 
 library.prototype.getBookByTitle = function(title){
+  console.log('title', title);
   var regEx = new RegExp(title, 'gi');
   var matchArray = [];
   for(var i = 0; i < this.bookArray.length; i++){
@@ -131,10 +146,12 @@ library.prototype.getBookByTitle = function(title){
 
     }
   }
+  // $("div.sideBookContainer").append("<li>" + matchArray + "</li>");
   return matchArray;
 };
 
 library.prototype.getBookByAuthor = function(author){
+  console.log('author', author);
   var regEx = new RegExp(author, 'gi');
   var matchArray = [];
   for(var i = 0; i < this.bookArray.length; i++){
@@ -143,6 +160,7 @@ library.prototype.getBookByAuthor = function(author){
         $("div.sideBookContainer").append("<li>" + this.bookArray[i].title + " " + this.bookArray[i].author + " " + this.bookArray[i].numberOfPages + " " + this.bookArray[i].publishDate + "</li>");
     }
   }
+  // $("div.sideBookContainer").append("<li>" + matchArray.author + "</li>");
   return matchArray;
 };
 
