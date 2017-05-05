@@ -1,16 +1,45 @@
+
+body{
+  margin: 30px;
+  background-color: #C5D955;
+}
 h1{
   text-align: center;
   margin-top: 30px;
+  font-family: Tahoma;
+  font-size: 80pt;
+  margin: auto;
+  color: white;
 }
 h2 {
   text-align: center;
+  color: #242C4B;
+  margin: auto;
+  font-size: 22pt;
 }
 h3{
   text-align: center;
 }
+h4{
+  margin: 30px 0 20px 0;
+  padding: 20px;
+  background-color: white;
+  color: #242C4B;
+  font-size: 15pt;
+  }
+  h5{
+    margin: 20px;
+    font-size: 16pt;
+    padding: 15px;
+  }
 ul{
   list-style-type: none;
-  margin: auto;
+  margin: 0 0 20px 0;
+}
+li {
+  list-style-type: none;
+  font-color: #242C4B;
+  font-size: 12pt;
 }
 input{
   width:175px;
@@ -18,17 +47,35 @@ input{
 form{
   margin-bottom: 25px;
 }
-.book-container{
-  height: 500px;
-  border: 1px solid #3B444B;
-  margin: 30px 0 50px 0;
+.box-heading{
+  font-family:'Quicksand', sans-serif;
 }
 
-.side-book-container{
-  border: 1px solid #3B444B;
-  margin: 30px 0 50px 0;
-  height: 500px;
+.col-md-4 {
+  margin: auto;
 }
-.buttons-1 .buttons-2{
-  margin-bottom: 75px;
+.bookContainer{
+  height: 375px;
+  margin-bottom: 35px;
+  background-color: white;
+}
+
+.sideBookContainer{
+  margin: 20px 0 35px 0;
+  height: 375px;
+  background-color: white;
+}
+.form-instructions{
+  padding: 15px 15px 40px 15px;
+  background-color: white;
+  color: #242C4B;
+  font-size: 15pt;
+  Margin-bottom: 20px;
+}
+.form-box{
+  padding: 25px;
+  background-color: white;
+}
+.addBookDrop{
+  margin-bottom: 20px;
 }

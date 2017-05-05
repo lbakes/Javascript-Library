@@ -9,90 +9,92 @@
 
    <body>
      <header class="container-fluid">
-        <h1>Lauren's Library</h1>
-        <h2><em>Of Classic Books</em></h2>
+        <h1>Library</h1>
+        <!-- <h2><em>Of Classic Books</em></h2> -->
       </header>
 
-     <div class = "row">
-        <div class = "col-md-8">
+     <div class = "row box-heading">
+        <div class = "col-md-8 text-center">
           <h4>Library</h4>
         </div>
-        <div class = "col-md-4">
-          <h4>Get Books</h4>
+        <div class = "col-md-4 text-center">
+          <h4>Get Items</h4>
         </div>
       </div>
 
      <div class = "row">
        <div class = "col-md-8">
-          <div class = "book-container">
+          <div class = "bookContainer">
+            <ul></ul>
           </div>
         </div>
         <div class = "col-md-4">
-          <div class = "side-book-container">
+          <div class = "sideBookContainer">
+            <ul></ul>
           </div>
         </div>
     </div>
 
-    <div class = "row" "add-book">
-      <div class = "add-book-forms">
-        <div class = "col-md-8">
-          <form>
-            <input type = "text" class = "title" placeholder = "Title">
-            <input type = "text" class = "author" placeholder = "Author">
-            <input type = "text" class = "pages" placeholder = "Pages">
-            <input type = "text" class = "date" placeholder = "Publish Date">
-            </form>
-        </div>
+  <div class = "form-instructions">
+     <div class = "container-fluid col-md-12 text-center">
+       <p>Add, Remove, and Get Books Here:</p>
       </div>
-        <div class = "col-md-4">
-          <button class = "add-bk">Add Book</button>
-        </div>
-      </div>
+  </div>
 
+  <div class= "form-box">
+    <div class = "row addBookDrop">
+        <div id="dropDown" class = "col-md-8">
+          <ul class="listGroup">
+          </ul>
+        </div>
+        <div class = "col-md-4">
+          <button class = "addBook">Add Book(s)</button>
+          <button type="button" id="dropDownBtn">Drop Down</button>
+        </div>
+      </div>
 
       <div class="container-fluid">
-        <div class="row short-buttons">
+        <div class="row">
           <div class="col-xs-4">
               <section>
-                <input type="text" class="remove-book-by-title" placeholder="Remove Book By Title">
+                <input type="text" class="removeTitle" placeholder="Remove Book By Title">
                 <button class="rmveBkByTle">Remove</button>
               </section>
               <section>
-                <input type="text" class="remove-book-by-author" placeholder="Remove Book By Author">
+                <input type="text" class="removeAuthor" placeholder="Remove Book By Author">
                 <button class="rmveBkByAuth">Remove</button>
-              </section>
-              <section>
-                <input type="text" class="get-random-book" placeholder="Get Random Book">
-                <button class="getRanBk">Get</button>
               </section>
           </div>
 
           <div class="col-xs-4">
             <section class>
-                <input type="text" class="get-book-by-title" placeholder="Get Book by Title">
-                <button class="getBkByTle">Get</button>
+                <input type="text" class="getTitle" placeholder="Get Book by Title">
+                <button class="getBookByTitleBtn">Get</button>
               </section>
               <section>
-                <input type="text" class="get-book-by-author" placeholder="Get Book by Author">
-                <button class = "getBkByAuth">Get</button>
+                <input type="text" class="getAuthor" placeholder="Get Book by Author">
+                <button class="getBookByAuth">Get</button>
               </section>
             </div>
 
           <div class="col-xs-4">
               <section>
-                <input type="text" class="get-authors" placeholder="Get Authors">
-                <button class="getAuth">Get</button>
+                <button class="getAuths">Get Authors</button>
               </section>
               <section>
-                <input type="text" class="get-random-author" placeholder="Get Random Author">
-                <button class="getRanAuth">Get</button>
+                <button class="getRanAuth">Get Random Author</button>
+              </section>
+              <section>
+                <button class="getRanBk">Get Random Book</button>
               </section>
           </div>
         </div>
+      </div>
+    </div>
 
 
       <script type="text/javascript" src="jQuery.js"></script>
-       <script type="text/javascript" src="Library.js"></script>
+      <script type="text/javascript" src="Library.js"></script>
 
    </body>
 
