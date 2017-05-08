@@ -1,101 +1,121 @@
+
 <!DOCTYPE html>
+
 <html>
-   <head>
-       <title>Library</title>
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-       <link rel="stylesheet" type="text/css" src="css/normalize.css">
-       <link rel="stylesheet" href="styles.css">
-   </head>
 
-   <body>
-     <header class="container-fluid">
-        <h1>Library</h1>
-        <!-- <h2><em>Of Classic Books</em></h2> -->
-      </header>
+  <head>
+      <title>Library</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+      <link rel="stylesheet" type="text/css" src="css/normalize.css">
+      <link rel="stylesheet" href="styles.css">
+      <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Julius+Sans+One|Libre+Baskerville|Montserrat|Muli" rel="stylesheet">
+  </head>
 
-     <div class = "row box-heading">
-        <div class = "col-md-8 text-center">
-          <h4>Library</h4>
+  <body>
+    <header class="container-fluid">
+      <h1>Library</h1>
+    </header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div id="libHead" class="col-xs-7 text-center">
+          <h2>Library</h2>
         </div>
-        <div class = "col-md-4 text-center">
-          <h4>Get Items</h4>
+        <div id="getHead" class="col-xs-5 text-center">
+          <h2>Get-Items</h2>
         </div>
       </div>
-
-     <div class = "row">
-       <div class = "col-md-8">
-          <div class = "bookContainer">
-            <ul></ul>
-          </div>
-        </div>
-        <div class = "col-md-4">
-          <div class = "sideBookContainer">
-            <ul></ul>
-          </div>
-        </div>
     </div>
 
-  <div class = "form-instructions">
-     <div class = "container-fluid col-md-12 text-center">
-       <p>Add, Remove, and Get Books Here:</p>
+    <div class="container-fluid">
+      <div class="row">
+        <div id="bookContainer" class="col-md-7">
+          <ul id="libList"></ul>
+        </div>
+        <div id="sideBookContainer" class="col-md-5">
+          <ul id="getList"></ul>
+        </div>
       </div>
-  </div>
+    </div>
 
-  <div class= "form-box">
-    <div class = "row addBookDrop">
-        <div id="dropDown" class = "col-md-8">
-          <ul class="listGroup">
+    <div class="row" id="instructions">
+      <div class="col-md-12">
+        <h3>Add, Remove, and Get Books/Authors:</h3>
+      </div>
+    </div>
+
+    <div class=row id="startEmptyBtns">
+      <div id="startBtnBox" class="col-xs-4 text-center">
+        <button type="button" id="startBtn">Add Starter Books</button>
+      </div>
+      <div id="emptyLibBtnBox" class="col-xs-4 text-center">
+        <button type="button" id="emptyLibBtn">Empty Library</button>
+      </div>
+      <div id="emptyGetBtnBox" class="col-xs-4 text-center">
+        <button type="button" id="emptyGetBtn">Empty Get-Items</button>
+      </div>
+    </div>
+
+    <div id= "formContainer">
+      <div class="row" id="dropListNBtns">
+        <div id="dropDown" class="col-md-8">
+          <ul id="listGroup">
           </ul>
         </div>
-        <div class = "col-md-4">
-          <button class = "addBook">Add Book(s)</button>
-          <button type="button" id="dropDownBtn">Drop Down</button>
+      <div class="col-md-4">
+        <div>
+          <button type="button" id="dropDownBtn">Load Book Form</button>
+          <button type="button" id="addBookBtn">Add Book(s)</button>
+        </div>
+        <div>
+          <button type="button" id="deleteFormBtn">Clear Form(s)</button>
         </div>
       </div>
+    </div>
+
 
       <div class="container-fluid">
         <div class="row">
           <div class="col-xs-4">
-              <section>
-                <input type="text" class="removeTitle" placeholder="Remove Book By Title">
-                <button class="rmveBkByTle">Remove</button>
-              </section>
-              <section>
-                <input type="text" class="removeAuthor" placeholder="Remove Book By Author">
-                <button class="rmveBkByAuth">Remove</button>
-              </section>
+            <section>
+              <input type="text" id="rmveByTitleField" placeholder="Remove Book By Title">
+              <button type: "remove" id="rmveByTitleBtn">Remove</button>
+            </section>
+            <section>
+              <input type="text" id="rmveByAuthField" placeholder="Remove Book By Author">
+              <button type="button" id="rmveByAuthBtn">Remove</button>
+            </section>
           </div>
 
           <div class="col-xs-4">
-            <section id="GBBTitle">
-                <input type="text" id="getTitle" placeholder="Get Book by Title">
-                <button class="getBookByTitleBtn">Get</button>
-              </section>
-              <section>
-                <input type="text" class="getAuthor" placeholder="Get Book by Author">
-                <button class="getBookByAuth">Get</button>
-              </section>
-            </div>
+            <section>
+              <input type="text" id="getByTitleField" placeholder="Get Book by Title">
+              <button type="button" id="getByTitleBtn">Get</button>
+            </section>
+            <section>
+              <input type="text" id="getByAuthField" placeholder="Get Book by Author">
+              <button type="button" id="getByAuthBtn">Get</button>
+            </section>
+          </div>
 
           <div class="col-xs-4">
-              <section>
-                <button class="getAuths">Get Authors</button>
-              </section>
-              <section>
-                <button class="getRanAuth">Get Random Author</button>
-              </section>
-              <section>
-                <button class="getRanBk">Get Random Book</button>
-              </section>
+            <section>
+              <button type="button" id="getRanBookBtn">Get Random Book</button>
+            </section>
+            <section>
+              <button type"button" id="getRanAuthBtn">Get Random Author</button>
+            </section>
+            <section>
+              <button type="button" id="getAuthsBtn">Get Authors</button>
+            </section>
           </div>
         </div>
       </div>
     </div>
 
-
       <script type="text/javascript" src="jQuery.js"></script>
       <script type="text/javascript" src="Library.js"></script>
 
-   </body>
+  </body>
 
 </html>

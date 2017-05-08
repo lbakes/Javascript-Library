@@ -1,81 +1,157 @@
 
 body{
-  margin: 30px;
+  margin: 20px;
   background-color: #C5D955;
 }
 h1{
-  text-align: center;
-  margin-top: 30px;
-  font-family: Tahoma;
-  font-size: 80pt;
-  margin: auto;
+  font-family: 'Muli', sans-serif;
+  font-weight: bold;
+  text-transform: lowercase;
+  font-size: 90pt;
+  margin: 0 0 15px 0;
   color: white;
 }
-h2 {
-  text-align: center;
+h2{
   color: #242C4B;
-  margin: auto;
-  font-size: 22pt;
+  font-family: 'Julius Sans One', sans-serif;
+  font-weight: bold;
+  font-weight: bold;
+  font-size: 21pt;
 }
 h3{
-  text-align: center;
-}
-h4{
-  margin: 30px 0 20px 0;
-  padding: 20px;
+  padding: 10px;
   background-color: white;
   color: #242C4B;
-  font-size: 15pt;
-  }
-  h5{
-    margin: 20px;
-    font-size: 16pt;
-    padding: 15px;
-  }
+  font-family: 'Julius Sans One', sans-serif;
+  font-weight: bold;
+  margin:auto;
+  text-align: center;
+}
 ul{
   list-style-type: none;
-  margin: 0 0 20px 0;
 }
 li {
   list-style-type: none;
-  font-color: #242C4B;
+  color: #242C4B;
   font-size: 12pt;
 }
 input{
-  width:175px;
-}
-form{
-  margin-bottom: 25px;
-}
-.box-heading{
-  font-family:'Quicksand', sans-serif;
+  width:190px;
 }
 
-.col-md-4 {
+form, li.get{
+  font-size: 15pt;
+  padding-left: 5px;
+  font-style: italic;
+}
+span{
+  color: #a3d1d1;
+  font-style: normal;
+}
+::placeholder{
+  color: #a3d1d1;
+}
+.col-md-12{
+  background-color: white;
+  margin: 15px 0 15px 0;
+}
+#libHead{
+  background-color: white;
+  border-right: 15px solid #C5D955;
+  }
+#getHead{
+  background-color: white;
+}
+#bookContainer{
+  margin-top: 15px;
+  height: 340px;
+  background-color: white;
+  overflow: auto;
+  border-right: 15px solid #C5D955;
+}
+#sideBookContainer{
+  margin-top: 15px;
+  height: 340px;
+  background-color: white;
+  overflow: auto;
+}
+#bookContainer::-webkit-scrollbar, #sideBookContainer::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+#bookContainer::-webkit-scrollbar-thumb, #sideBookContainer::-webkit-scrollbar-thumb {
+  background: white;
+  border: 1px solid #242C4B;
+}
+#bookContainer::-webkit-scrollbar-thumb:hover, #sideBookContainer::-webkit-scrollbar-thumb:hover {
+  background: whitesmoke;
+}
+#instructions{
+  Margin: auto;
+}
+#startEmptyBtns{
   margin: auto;
 }
-.bookContainer{
-  height: 375px;
-  margin-bottom: 35px;
+#startBtnBox{
+  padding: 15px 0 15px 0;
+  background-color: white;
+  margin-bottom: 15px;
+}
+#emptyLibBtnBox{
+  padding: 15px 0 15px 0;
+  margin-bottom: 15px;
+  border-left: 15px solid #C5D955;
+  border-right: 15px solid #C5D955;
   background-color: white;
 }
-
-.sideBookContainer{
-  margin: 20px 0 35px 0;
-  height: 375px;
+#emptyGetBtnBox{
+  padding: 15px 0 15px 0;
+  margin-bottom: 15px;
   background-color: white;
 }
-.form-instructions{
-  padding: 15px 15px 40px 15px;
-  background-color: white;
-  color: #242C4B;
-  font-size: 15pt;
-  Margin-bottom: 20px;
+#startBtn, #emptyLibBtn, #emptyGetBtn{
+  background-color: #a3d1d1;
+  border-color: #a3d1d1;
+  color: white;
+  font-size: 14pt;
 }
-.form-box{
-  padding: 25px;
+#startBtn:hover, #emptyLibBtn:hover, #emptyGetBtn:hover{
+  background-color: white;
+  border-color: white;
+  color: #a3d1d1;
+}
+#formContainer{
+  padding: 15px;
   background-color: white;
 }
-.addBookDrop{
+#dropListNBtns{
   margin-bottom: 20px;
+}
+#addBookBtn, #dropDownBtn, #deleteFormBtn{
+  background-color: white;
+  border-color:  #242C4B;
+  color: #242C4B;
+  font-size: 12pt;
+}
+#addBookBtn:hover, #dropDownBtn:hover, #deleteFormBtn:hover{
+  background-color: #242C4B;
+  border-color: #242C4B;
+  color: white;
+}
+#rmveByTitleBtn, #rmveByAuthBtn , #getByTitleBtn , #getByAuthBtn , #getAuthsBtn,
+#getRanAuthBtn , #getRanBookBtn {
+  background-color: #a3d1d1;
+  border-color: white;
+  color: white;
+  font-size: 12pt;
+}
+#rmveByTitleBtn:hover, #rmveByAuthBtn:hover,
+#getByTitleBtn:hover, #getByAuthBtn:hover, #getAuthsBtn:hover, #getRanAuthBtn:hover, #getRanBookBtn:hover{
+  background-color: white;
+  border-color: white;
+  color: #a3d1d1;
+}
+#rmveByTitleField, #rmveByAuthField , #getByTitleField , #getByAuthField{
+  font-size: 12pt;
+  height: 30px;
 }
